@@ -1,27 +1,32 @@
-# React + TypeScript + Vite
+# Starting the app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. Añadir las siguientes reglas a la configuración de Visual Studio Code:
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
+   {
+   "editor.codeActionsOnSave": {
+   "source.fixAll.eslint": true
    },
-```
+   "editor.defaultFormatter": "esbenp.prettier-vscode",
+   "[html]": {
+   "editor.linkedEditing": true,
+   "editor.defaultFormatter": "vscode.html-language-features"
+   },
+   "files.autoSave": "off",
+   "files.insertFinalNewline": true,
+   "editor.formatOnPaste": true,
+   "editor.formatOnSave": true,
+   "editor.tabSize": 2,
+   "javascript.updateImportsOnFileMove.enabled": "always",
+   "typescript.updateImportsOnFileMove.enabled": "always"
+   }
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Instalar las siguientes extensiones de VSCode:
+
+- "Prettier - Code formatter" de "Prettier"
+- "ESLint" de Microsoft
+
+3. En el terminal, lanzar `npm install`.
+
+4. En el terminal, lanzar `npm run dev` para levantar la aplicación.
+
+<br>
