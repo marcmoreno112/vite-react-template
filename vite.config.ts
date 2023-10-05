@@ -13,6 +13,7 @@ export default defineConfig({
       provider: "v8",
       reporter: ["lcov", "text"],
       all: true,
+      include: ["src/*"],
       exclude: [
         "**/*.test.{ts,tsx}",
         "**/types.ts",
