@@ -1,4 +1,4 @@
-# Starting the app
+# Cómo arrancar el proyecto
 
 1.
 
@@ -34,3 +34,7 @@
 4. En el terminal, lanzar `npm run dev` para levantar la aplicación.
 
 <br>
+
+# Análisis de SonarCloud
+
+Entrar en el siguiente enlace para ver los resultados: https://sonarcloud.io/summary/overall?id=marcmoreno112_vite-react-template
