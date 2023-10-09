@@ -1,6 +1,11 @@
 # Cómo arrancar el proyecto
 
-1. Settings en VScode:
+1. Instalar las siguientes extensiones de VSCode:
+
+- "Prettier - Code formatter" de "Prettier"
+- "ESLint" de Microsoft
+
+2. Settings en VScode:
 
 - En VSCode, en el menú File, ir a Preferences y Settings.
 - Ahí, click en el botón "Open Settings (JSON)" en la esquina superior derecha.
@@ -24,14 +29,11 @@
   "typescript.updateImportsOnFileMove.enabled": "always"
   }
 
-2. Instalar las siguientes extensiones de VSCode:
+3. Renombrar el archivo "env-sample" a ".env", y escribir el idioma deseado después del "=". En este caso: en -> sin las comillas
 
-- "Prettier - Code formatter" de "Prettier"
-- "ESLint" de Microsoft
+4. En el terminal, lanzar `npm install`. Es imprescindible tener NodeJS instalado (con npm).
 
-3. En el terminal, lanzar `npm install`.
-
-4. En el terminal, lanzar `npm run dev` para levantar la aplicación.
+5. En el terminal, lanzar `npm run dev` para levantar la aplicación.
 
 <br>
 

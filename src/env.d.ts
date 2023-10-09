@@ -1,5 +1,11 @@
 /// <reference types="vite/client" />
 
-interface ImportMeta {
-  readonly env: ImportMetaEnv;
+interface ImportMetaEnv {
+  REACT_APP_LNG: SupportedLanguages;
+}
+
+declare module "import-meta" {
+  interface ImportMeta {
+    readonly env: ImportMetaEnv;
+  }
 }
