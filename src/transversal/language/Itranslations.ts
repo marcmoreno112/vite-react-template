@@ -4,10 +4,12 @@ export type TranslationKeys =
   | "_01_LoginUserText"
   | "_01_LoginPasswordLabel"
   | "_01_LoginPasswordText"
-  | "_01_LoginSubmitButtonLabel"
   | "_01_LoginSubmitButtonText"
   | "_01_LoginFeedbackOk"
-  | "_01_LoginFeedbackError"
+  | "_01_LoginFeedbackErrorConsole"
+  | "_01_LoginFeedbackErrorHeading"
+  | "_01_LoginFeedbackInvalidPassword"
+  | "_01_LoginFeedbackInvalidUser"
   | "_02_ImportTitle"
   | "_02_ImportSelectButtonLabel"
   | "_02_ImportSelectButtonText"
@@ -16,7 +18,8 @@ export type TranslationKeys =
   | "_02_ImportFeedbackOk"
   | "_02_ImportFeedbackError"
   | "_03_LogoutButtonText"
-  | "_03_LogoutButtonLabel";
+  | "_03_LogoutButtonLabel"
+  | "_04_AuthError";
 
 type Translation = {
   [key in TranslationKeys]: string;
