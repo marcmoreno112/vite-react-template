@@ -1,14 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import { AuthProvider } from "./users/operations/loginUser/shared/adapters/adapters.tsx";
 import App from "./App.tsx";
-import "./index.css";
 import { defineCustomElements } from "@telekom/scale-components/loader";
 import "@telekom/scale-components/dist/scale-components/scale-components.css";
-
-defineCustomElements();
+import "./styles/styles.scss";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
+
+defineCustomElements();
