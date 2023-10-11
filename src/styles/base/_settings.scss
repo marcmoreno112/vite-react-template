@@ -1,0 +1,24 @@
+// TYPOGRAPHY
+$heading1: 40px;
+$heading2: 32px;
+$heading3: 27px;
+$heading4: 19px;
+$bold-l: 19px;
+$bold-m: 16px;
+$bold-s: 13px;
+
+// COLOURS
+$primary: var(--telekom-color-additional-orange-600);
+$black: #353c43;
+$white: #ffffff;
+$warm-grey: #dedad4;
+$medium-grey: #eeece9;
+$light-grey: #f6f5f4;
+
+// MIXINS
+@mixin primary-button() {
+  --background-primary: var(--telekom-color-additional-orange-600);
+  --background-primary-hover: var(--telekom-color-additional-orange-400);
+  --background-primary-active: var(--telekom-color-additional-orange-400);
+  --background-primary-disabled: var(--telekom-color-additional-orange-400);
+}
