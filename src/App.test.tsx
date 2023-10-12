@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import { AuthProvider } from "./users/operations/loginUser/shared/adapters/adapters";
+import { AuthProvider } from "./users/operations/loginUser/application/adapters/adapters";
 
 describe("Given an App component", () => {
   describe("When rendered", () => {
