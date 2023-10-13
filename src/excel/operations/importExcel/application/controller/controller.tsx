@@ -20,7 +20,7 @@ export const useFileSubmit = () => {
       setIsLoading(true);
 
       try {
-        const decodedExcelData = await readExcelData(excelFile);
+        const decodedExcelData = readExcelData(excelFile);
         const { isValid, validatedData, errorMsg } = await validateExcelData(
           decodedExcelData
         );
