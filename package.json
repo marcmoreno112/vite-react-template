@@ -17,6 +17,7 @@
     "@telekom/scale-components": "^3.0.0-beta.141",
     "@telekom/scale-components-react": "^3.0.0-beta.141",
     "axios": "^1.5.1",
+    "dropzone": "^6.0.0-beta.2",
     "formik": "^2.4.5",
     "loglevel": "^1.8.1",
     "react": "^18.2.0",
