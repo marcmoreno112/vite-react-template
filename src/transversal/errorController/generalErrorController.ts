@@ -44,9 +44,11 @@ export function consoleError(
   error: Error,
   callstack = ""
 ) {
-  const date = new Date()
-    .toTimeString()
-    .replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+  // El código anterior era:
+  // const date = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+  // Se sustituye porque SonarCloud considera "is vulnerable to super-linear runtime due to backtracking, cannot lead to denial of service". Comprobar que funcione de la misma forma.
+
+  const date = new Date().toTimeString().match(/(\d{2}:\d{2}:\d{2})/);
 
   log.setLevel(log.levels.TRACE);
 

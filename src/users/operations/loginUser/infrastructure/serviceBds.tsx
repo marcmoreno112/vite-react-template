@@ -6,10 +6,6 @@ export const loginUser = async (values: {
   email: string;
   password: string;
 }) => {
-  try {
-    const response = await axios.post(`${API_URL}/login`, values);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+  const response = await axios.post(`${API_URL}/login`, values);
+  return response.data;
 };

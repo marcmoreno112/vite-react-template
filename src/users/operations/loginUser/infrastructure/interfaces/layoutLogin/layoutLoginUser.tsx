@@ -26,10 +26,6 @@ export default function LoginScreen() {
   const authContext = AuthConsumer();
   const navigate = useNavigate();
 
-  if (!authContext) {
-    return null;
-  }
-
   const { login } = authContext as Auth;
 
   const { handleSubmit, handleChange, errors } = useFormik({
@@ -52,6 +48,10 @@ export default function LoginScreen() {
     },
     validationSchema: RegisterSchema,
   });
+
+  if (!authContext) {
+    return null;
+  }
 
   return (
     <div className="login-screen">
