@@ -1,8 +1,10 @@
+
+
 import { z } from "zod";
 import { adaptSerialNumToJSDate } from "../../application/adapters/adapters";
 
 export const schemaETT = z.object({
-  ettCode: z.string().min(1).max(255),
+  id: z.string().min(1).max(255),
   name: z.string().min(1).max(255),
   group: z.number().int(),
   department: z.number().int(),
@@ -17,3 +19,4 @@ export const schemaETT = z.object({
       message: "Invalid date format",
     }),
 });
+
