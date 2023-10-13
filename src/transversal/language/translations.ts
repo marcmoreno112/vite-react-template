@@ -14,6 +14,8 @@ const resources: Resources = {
       _01_LoginTitle: "Iniciar sesión",
       _01_LoginUserLabel: "Escriba su correo electrónico",
       _01_LoginUserText: "Usuario",
+      _02_ImportColumn: "Columna",
+      _02_ImportRow: "Fila",
       _02_ImportFeedbackError:
         "Por favor, seleccione solo tipos de archivos de Excel.",
       _02_ImportFeedbackOk: "Importación correcta",
@@ -40,6 +42,8 @@ const resources: Resources = {
       _01_LoginTitle: "Log in",
       _01_LoginUserLabel: "Enter your email adress",
       _01_LoginUserText: "User",
+      _02_ImportColumn: "Column",
+      _02_ImportRow: "Row",
       _02_ImportFeedbackError: "Please select only Excel file types.",
       _02_ImportFeedbackOk: "Correct import",
       _02_ImportSelectButtonLabel: "input",
