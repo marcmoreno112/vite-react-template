@@ -48,14 +48,16 @@ export function consoleError(
   // const date = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
   // Se sustituye porque SonarCloud considera "is vulnerable to super-linear runtime due to backtracking, cannot lead to denial of service". Comprobar que funcione de la misma forma.
 
-  const date = new Date().toTimeString().match(/(\d{2}:\d{2}:\d{2})/);
+  const date = new Date().toTimeString();
+  const regex = /(\d{2}:\d{2}:\d{2})/;
+  const hour = regex.exec(date)?.[1];
 
   log.setLevel(log.levels.TRACE);
 
   if (typeError.toUpperCase() === "ERROR") {
     log.info(
       colors.red,
-      date +
+      hour +
         " [ERROR] " +
         nameFunction +
         ": " +
@@ -74,7 +76,7 @@ export function consoleError(
     if (typeError.toUpperCase() === "DEBUG") {
       log.info(
         colors.yellow,
-        date +
+        hour +
           " [DEBUG] " +
           nameFunction +
           ": " +
@@ -87,7 +89,7 @@ export function consoleError(
     if (typeError.toUpperCase() === "INFO") {
       log.info(
         colors.green,
-        date +
+        hour +
           " [INFO] " +
           nameFunction +
           ": " +
@@ -99,7 +101,7 @@ export function consoleError(
     if (typeError.toUpperCase() === "WARN") {
       log.info(
         colors.red,
-        date +
+        hour +
           " [WARN] " +
           nameFunction +
           ": " +
