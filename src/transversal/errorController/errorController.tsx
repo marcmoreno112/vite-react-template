@@ -1,9 +1,7 @@
 import { z } from "zod";
-import { TExcelData } from "../models/ImodelsIndex";
 
-export const errorController = (
+export const importExcelErrorController = (
   error: z.ZodError | unknown,
-  data: TExcelData,
   index: number
 ) => {
   let errorMessage = "";
@@ -20,6 +18,7 @@ export const errorController = (
         index + 2
       }, cell name: ${invalidCell}, ${zodErrorMsg._errors[0]}`;
     }
+    console.log(errorMessage.toLowerCase());
     return errorMessage.toLowerCase();
   } else {
     return (errorMessage = `An unexpected error occurred`);

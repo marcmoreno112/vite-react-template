@@ -1,5 +1,6 @@
 import axios from "axios";
-import { TExcelData } from "../shared/models/ImodelsIndex";
+import { TExcelData } from "../../domain/models/ImodelsIndex";
+
 
 export const sendExcelDataToDB = async (data: TExcelData) => {
   try {
