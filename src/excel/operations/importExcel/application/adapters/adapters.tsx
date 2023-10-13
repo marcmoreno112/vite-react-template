@@ -1,3 +1,5 @@
+
+
 import { TExcelData } from "../../domain/models/ImodelsIndex";
 
 
@@ -43,3 +45,4 @@ export const adaptExcelRowValues = (excelRow: object) => {
   }
   return data
 }
+
