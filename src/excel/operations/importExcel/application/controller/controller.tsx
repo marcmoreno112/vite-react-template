@@ -26,7 +26,7 @@ export const useFileSubmit = () => {
         );
 
         if (isValid) {
-          const res = await sendExcelDataToDB(validatedData);
+          const res = sendExcelDataToDB(validatedData);
           if (res.status === 200) {
             toast.success("Data sent");
           } else {
