@@ -3,7 +3,7 @@ import ProtectedRoute from "./users/operations/loginUser/infrastructure/interfac
 import Dashboard from "./users/operations/loginUser/infrastructure/interfaces/dashboard/dashboard";
 import LoginScreen from "./users/operations/loginUser/infrastructure/interfaces/layoutLogin/layoutLoginUser";
 import { AuthProvider } from "./users/operations/loginUser/application/adapters/adapters";
-import IlayoutImportExcel from "./excel/operations/importExcel/infrastructure/interfaces/IlayoutImportExcel";
+import IlayoutImportExcel from "./excel/operations/importExcel/infrastructure/interfaces/IlayoutImportExcel ";
 
 function App() {
   return (

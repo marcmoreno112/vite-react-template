@@ -1,5 +1,3 @@
-
-
 import { z } from "zod";
 import { adaptSerialNumToJSDate } from "../../application/adapters/adapters";
 
@@ -19,4 +17,3 @@ export const schemaETT = z.object({
       message: "Invalid date format",
     }),
 });
-
