@@ -1,6 +1,5 @@
 import log from "loglevel";
 import t from "../language/i18";
-import { ErrorKeys } from "./generalIerrorController";
 
 const colors = {
   red: `\u001b[1;31m`,
@@ -11,11 +10,7 @@ const colors = {
   cyan: `\u001b[1;36m`,
 };
 
-function findMessage(
-  errorMessage: string | ErrorKeys,
-  row?: string,
-  column?: string
-) {
+function findMessage(errorMessage: string, row?: string, column?: string) {
   let translation;
   //si mantenemos que los mensajes de error sean los del archivo typeErrors, podemos sustituir el switch por: let translation = t(errorMessage)
 
@@ -112,11 +107,7 @@ export function consoleError(
       );
     }
   }
-  /*log.trace(colors.purple, date + " [TRACE] " + JSON.stringify(error));
-  log.debug(colors.yellow, date + " [DEBUG] " + JSON.stringify(error));
-  log.info(colors.green, date + " [INFO] " + JSON.stringify(error));
-  log.warn(colors.red, date + " [WARN] " + JSON.stringify(error));
-  log.error(colors.red, date + " [ERROR] " + JSON.stringify(error));*/
+
   return undefined;
 }
 
