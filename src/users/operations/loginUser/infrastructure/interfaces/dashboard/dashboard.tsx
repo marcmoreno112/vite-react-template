@@ -2,10 +2,6 @@ import { ScaleButton } from "@telekom/scale-components-react";
 import { AuthConsumer } from "../../../application/adapters/adapters";
 import { useNavigate } from "react-router-dom";
 
-interface Auth {
-  authed: boolean;
-}
-
 export default function Dashboard() {
   const auth = AuthConsumer();
   const navigate = useNavigate();
