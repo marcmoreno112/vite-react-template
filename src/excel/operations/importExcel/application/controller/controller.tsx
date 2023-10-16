@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as XLSX from "xlsx";
 import { validateExcelData } from "../../domain/validators/validator";
-import { sendExcelDataToDB } from "../../infrastructure/serviceBds/serviceBds";
+import { addDataExcel } from "../../infrastructure/serviceBds/serviceBds";
 
 const readExcelData = (excelFile: string | ArrayBuffer) => {
   const workbook = XLSX.read(excelFile, { type: "buffer" });
@@ -26,9 +26,10 @@ export const useFileSubmit = () => {
       );
 
       if (isValid) {
-        const res = await sendExcelDataToDB(validatedData);
+        const res = await addDataExcel(validatedData);
+
         setIsLoading(false);
-        if (res === 200) {
+        if (res?.status === 200) {
           setSuccess("Data sent");
         } else {
           // desde aquí se puede enviar el error (que es "res") a errorController de transversal
