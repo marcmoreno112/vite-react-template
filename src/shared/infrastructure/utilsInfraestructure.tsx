@@ -20,7 +20,7 @@ export const axiosAsync = {
       .catch((error) => {
         return error;
       }),
-  post: (url: string, body: string[]) => {
+  post: (url: string, body: unknown) => {
     return {
       status: 200,
       body,

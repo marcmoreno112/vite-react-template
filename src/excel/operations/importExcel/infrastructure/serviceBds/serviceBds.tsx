@@ -7,9 +7,7 @@ const BASE_API_USERS = "/api/workers";
 export async function addDataExcel(data: TExcelData[]) {
   try {
     let result = undefined;
-    result = await axiosAsync.post(`${BASE_API_USERS}/`, {
-      data,
-    });
+    result = await axiosAsync.post(`${BASE_API_USERS}/`, data);
     if (result?.status !== 200) {
       // errorMessage("addDataExcel", result);
     } else {
