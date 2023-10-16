@@ -1,6 +1,5 @@
 import { useState } from "react";
 import * as XLSX from "xlsx";
-import { toast } from "react-toastify";
 import { validateExcelData } from "../../domain/validators/validator";
 import { sendExcelDataToDB } from "../../infrastructure/serviceBds/serviceBds";
 
@@ -14,34 +13,33 @@ const readExcelData = (excelFile: string | ArrayBuffer) => {
 
 export const useFileSubmit = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
 
   const sendExcelData = async (excelFile: string | ArrayBuffer | null) => {
     if (excelFile !== null) {
       setIsLoading(true);
 
-      try {
-        const decodedExcelData = await readExcelData(excelFile);
-        const { isValid, validatedData, errorMsg } = await validateExcelData(
-          decodedExcelData
-        );
+      const decodedExcelData = readExcelData(excelFile);
+      const { isValid, validatedData, errorMsg } = await validateExcelData(
+        decodedExcelData
+      );
 
-        if (isValid) {
-          const res = await sendExcelDataToDB(validatedData);
-          if (res.status === 200) {
-            toast.success("Data sent");
-          } else {
-            toast.error("Error sending data to the server");
-          }
+      if (isValid) {
+        const res = await sendExcelDataToDB(validatedData);
+        setIsLoading(false);
+        if (res === 200) {
+          setSuccess("Data sent");
         } else {
-          toast.error(errorMsg);
+          // desde aquí se puede enviar el error (que es "res") a errorController de transversal
+          setError("Error sending data to the server");
         }
-      } catch (error) {
-        console.error("An error occurred:", error);
+      } else {
+        setIsLoading(false);
+        setError(errorMsg);
       }
-
-      setIsLoading(false);
     }
   };
 
-  return { isLoading, sendExcelData };
+  return { isLoading, error, setError, success, setSuccess, sendExcelData };
 };

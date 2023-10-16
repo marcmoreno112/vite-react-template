@@ -1,6 +1,7 @@
-import { TExcelData } from "../../domain/models/ImodelsIndex";
-
-const getCellValue = (excelRow: object, key: string) => {
+const getCellValue = (
+  excelRow: { [x: string]: string | number },
+  key: string
+) => {
   const isElement = Object.keys(excelRow).find((i) => i.includes(key));
   if (isElement) return excelRow[isElement];
 };
@@ -32,13 +33,17 @@ export const adaptSerialNumToJSDate = (serialNumber: number) => {
   return fullDate;
 };
 
-export const adaptExcelRowValues = (excelRow: object) => {
-  const data: TExcelData = {
-    id: getCellValue(excelRow, "IDENTIFICADOR"),
-    name: getCellValue(excelRow, "NOMBRE SUSTITUTO"),
-    group: getCellValue(excelRow, "GRUPO"),
-    department: getCellValue(excelRow, "DEP"),
-    date: getCellValue(excelRow, "FECHA"),
-  };
-  return data;
+export const adaptExcelRowValues = (excelRow: {
+  [x: string]: string | number;
+}) => {
+  if (excelRow) {
+    const data = {
+      id: getCellValue(excelRow, "IDENTIFICADOR"),
+      name: getCellValue(excelRow, "NOMBRE SUSTITUTO"),
+      group: getCellValue(excelRow, "GRUPO"),
+      department: getCellValue(excelRow, "DEP"),
+      date: getCellValue(excelRow, "FECHA"),
+    };
+    return data;
+  }
 };
