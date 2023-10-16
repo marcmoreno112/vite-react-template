@@ -1,5 +1,5 @@
 // import { errorMessage } from "../../../transversal/error/errorController";
-import { axiosAsync } from "../../../../shared/infrastructure/utilsInfraestructure";
+import { axiosAsync } from "../../../../../shared/infrastructure/utilsInfraestructure";
 
 const BASE_API_USERS = "/auth";
 

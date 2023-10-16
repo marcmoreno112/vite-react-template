@@ -1,4 +1,4 @@
-import { AuthConsumer } from "../../application/adapters/adapters";
+import { AuthConsumer } from "../context/loginContext";
 import { Navigate } from "react-router-dom";
 
 interface Props {

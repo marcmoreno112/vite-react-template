@@ -6,9 +6,9 @@ import {
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
-import { loginUser } from "../../serviceBds";
+import { loginUser } from "../../serviceBds/serviceBds";
 import { useNavigate } from "react-router-dom";
-import { AuthConsumer } from "../../../application/adapters/adapters";
+import { AuthConsumer } from "../../../../../../context/loginContext";
 
 const RegisterSchema = Yup.object().shape({
   email: Yup.string().email().required(),
