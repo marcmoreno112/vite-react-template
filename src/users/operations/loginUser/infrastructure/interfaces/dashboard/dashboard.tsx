@@ -1,5 +1,5 @@
 import { ScaleButton } from "@telekom/scale-components-react";
-import { AuthConsumer } from "../../../application/adapters/adapters";
+import { AuthConsumer } from "../../../../../../context/loginContext";
 import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
