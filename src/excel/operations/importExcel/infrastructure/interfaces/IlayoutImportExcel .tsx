@@ -4,7 +4,7 @@ import {
   ScaleLoadingSpinner,
 } from "@telekom/scale-components-react";
 import { useDropzone } from "react-dropzone";
-import { useFileSubmit } from "../../application/controller/controller";
+import { useFileSubmit } from "../controller/controller";
 import Notification from "../../domain/componentsVisual/InotificationVisual";
 import "./layoutImportExcel.scss";
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as XLSX from "xlsx";
 import { validateExcelData } from "../../domain/validators/validator";
-import { addDataExcel } from "../../infrastructure/serviceBds/serviceBds";
+import { addDataExcel } from "../serviceBds/serviceBds";
 
 const readExcelData = (excelFile: string | ArrayBuffer) => {
   const workbook = XLSX.read(excelFile, { type: "buffer" });
