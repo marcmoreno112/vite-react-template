@@ -36,7 +36,7 @@ export default function LoginScreen() {
     onSubmit: async (values, { resetForm }) => {
       console.log(values);
       try {
-        await loginUser(values);
+        await loginUser(values.email, values.password);
         resetForm();
         console.log("Form data sent successfully");
         login();
