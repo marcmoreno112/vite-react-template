@@ -1,4 +1,5 @@
-import { SupportedLanguages, TranslationKeys } from "./Itranslations";
+import { SupportedLanguages } from "../env";
+import { TranslationKeys } from "./Itranslations";
 import resources from "./translations";
 
 export default function t(tag: TranslationKeys): string {

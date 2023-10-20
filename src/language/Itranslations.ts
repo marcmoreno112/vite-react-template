@@ -1,3 +1,4 @@
+import { SupportedLanguages } from "../env";
 import { ErrorKeys } from "../error/IerrorController";
 
 export type TranslationKeys =
@@ -28,9 +29,6 @@ type Translation = {
 interface LanguageResources {
   translation: Translation;
 }
-
-// Agregar aquí los idiomas soportados
-export type SupportedLanguages = "es" | "en";
 
 export type Resources = {
   [language in SupportedLanguages]: LanguageResources;
