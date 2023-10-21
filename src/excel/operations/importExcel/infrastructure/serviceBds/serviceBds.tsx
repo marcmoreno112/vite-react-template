@@ -1,5 +1,5 @@
 import { axiosAsync } from "../../../../../shared/infrastructure/utilsInfraestructure";
-import { TExcelData } from "../../domain/models/ImodelsIndex";
+import { TExcelData } from "../../domain/models";
 // import { errorMessage } from "../../../transversal/error/errorController";
 
 const BASE_API_USERS = "/api/workers";
