@@ -1,28 +1,6 @@
-import { z } from "zod";
-import { adaptExcelRowValues } from "../../application/adapters/adapters";
+import { extractZodError, getExcelRowValues } from "../helpers";
 import { schemaETT } from "../schemaValidators/schemaValidators";
-import { TExcelData } from "../models/ImodelsIndex";
-
-const zodError = (error: z.ZodError | unknown, index: number) => {
-  let errorMessage = "";
-  if (error instanceof z.ZodError) {
-    const zodError = error.issues[0];
-
-    if (zodError.path[0] === "date" && zodError.message !== "Required") {
-      errorMessage = `Validation failed: Excel row number: ${
-        index + 2
-      }, cell name: ${zodError.path[0]}, please introduce correct date format`;
-    } else {
-      errorMessage = `Validation failed: Excel row number: ${
-        index + 2
-      }, cell name: ${zodError.path[0]}, ${zodError.message}`;
-    }
-
-    return errorMessage.toLowerCase();
-  } else {
-    return (errorMessage = `An unexpected error occurred`);
-  }
-};
+import { TExcelData } from "../models";
 
 const validateExcelRow = async (data: unknown, index: number) => {
   try {
@@ -33,7 +11,7 @@ const validateExcelRow = async (data: unknown, index: number) => {
       errorMessage: null,
     };
   } catch (error) {
-    const errorMessage = zodError(error, index);
+    const errorMessage = extractZodError(error, index);
     return {
       isRowValid: false,
       data: null,
@@ -51,7 +29,7 @@ export const validateExcelData = async (excelData: string | any[]) => {
 
   while (index < excelData.length && isValid) {
     const excelRow = excelData[index];
-    const adaptedData = adaptExcelRowValues(excelRow);
+    const adaptedData = getExcelRowValues(excelRow);
     const { isRowValid, data, errorMessage } = await validateExcelRow(
       adaptedData,
       index
