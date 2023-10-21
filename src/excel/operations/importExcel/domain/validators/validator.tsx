@@ -20,6 +20,32 @@ const validateExcelRow = async (data: unknown, index: number) => {
   }
 };
 
+// Prevents to import excel file with no ETT data inside
+const isExcelFileETTTable = (ettObj: object) => {
+  const requiredKeys = [
+    "IDENTIFICADOR",
+    "NOMBRE SUSTITUTO",
+    "GRUPO",
+    "DEP",
+    "FECHA",
+  ];
+
+  for (const key of requiredKeys) {
+    // eslint-disable-next-line no-prototype-builtins
+    if (!ettObj.hasOwnProperty(key)) {
+      return false;
+    }
+  }
+
+  for (const key in ettObj) {
+    if (!requiredKeys.includes(key)) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const validateExcelData = async (excelData: string | any[]) => {
   let isValid = true;
@@ -27,22 +53,29 @@ export const validateExcelData = async (excelData: string | any[]) => {
   const validatedData: TExcelData[] = [];
   let index = 0;
 
-  while (index < excelData.length && isValid) {
-    const excelRow = excelData[index];
-    const adaptedData = getExcelRowValues(excelRow);
-    const { isRowValid, data, errorMessage } = await validateExcelRow(
-      adaptedData,
-      index
-    );
+  const isETTData = isExcelFileETTTable(excelData[0]);
+  console.log(isETTData);
+  if (isETTData) {
+    while (index < excelData.length && isValid) {
+      const excelRow = excelData[index];
+      const adaptedData = getExcelRowValues(excelRow);
+      const { isRowValid, data, errorMessage } = await validateExcelRow(
+        adaptedData,
+        index
+      );
 
-    if (isRowValid && data !== null && data.date) {
-      validatedData.push(data);
-      index++;
-    } else {
-      isValid = false;
-      errorMsg = errorMessage;
-      validatedData.length = 0;
+      if (isRowValid && data !== null && data.date) {
+        validatedData.push(data);
+        index++;
+      } else {
+        isValid = false;
+        errorMsg = errorMessage;
+        validatedData.length = 0;
+      }
     }
+  } else {
+    isValid = false;
+    errorMsg = "Please import an Excel file with ETT data only.";
   }
 
   return { validatedData, isValid, errorMsg };
