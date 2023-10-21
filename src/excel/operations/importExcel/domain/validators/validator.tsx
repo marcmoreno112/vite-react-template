@@ -31,17 +31,11 @@ const isExcelFileETTTable = (ettObj: object) => {
   ];
 
   for (const key of requiredKeys) {
-    // eslint-disable-next-line no-prototype-builtins
-    if (!ettObj.hasOwnProperty(key)) {
-      return false;
-    }
+    const isKey = Object.keys(ettObj).find((i) => i.includes(key));
+    if (!isKey) return false;
   }
 
-  for (const key in ettObj) {
-    if (!requiredKeys.includes(key)) {
-      return false;
-    }
-  }
+  if (Object.keys(ettObj).length > requiredKeys.length) return false;
 
   return true;
 };
@@ -54,7 +48,7 @@ export const validateExcelData = async (excelData: string | any[]) => {
   let index = 0;
 
   const isETTData = isExcelFileETTTable(excelData[0]);
-  console.log(isETTData);
+
   if (isETTData) {
     while (index < excelData.length && isValid) {
       const excelRow = excelData[index];
