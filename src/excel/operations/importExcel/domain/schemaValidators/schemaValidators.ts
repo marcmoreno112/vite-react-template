@@ -1,6 +1,5 @@
 import { z } from "zod";
-// eslint-disable-next-line hexagonal-architecture/enforce
-import { adaptSerialNumToJSDate } from "../../application/adapters/adapters";
+import { convertSerialNumToJSDate } from "../helpers";
 
 export const schemaETT = z.object({
   id: z.string().min(1).max(255),
@@ -8,7 +7,7 @@ export const schemaETT = z.object({
   group: z.number().int(),
   department: z.number().int(),
   date: z.number().transform((value: number) => {
-    const fullDate = adaptSerialNumToJSDate(value);
+    const fullDate = convertSerialNumToJSDate(value);
 
     if (!(fullDate instanceof Date)) {
       throw new Error("Invalid date format");
