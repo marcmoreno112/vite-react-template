@@ -4,8 +4,8 @@
 export type SupportedLanguages = "es" | "en";
 
 interface ImportMetaEnv {
-  REACT_APP_LNG: SupportedLanguages;
-  REACT_APP_CONSOLE_LOG_VISUALIZE_LEVEL: string;
+  VITE_REACT_APP_LNG: SupportedLanguages;
+  VITE_REACT_APP_CONSOLE_LOG_VISUALIZE_LEVEL: string;
 }
 
 declare module "import-meta" {

@@ -25,6 +25,6 @@
       "react": ["./node_modules/@types/react"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "src/shared/infrastructure/vite.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
