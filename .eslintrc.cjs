@@ -15,7 +15,16 @@ module.exports = {
     },
   },
   parser: "@typescript-eslint/parser",
-  plugins: ["react-refresh", "react-hooks"],
+  plugins: ["react-refresh", "react-hooks", "hexagonal-architecture"],
+
+  overrides: [
+    {
+      files: ["src/**/*.ts"],
+      rules: {
+        "hexagonal-architecture/enforce": ["error"],
+      },
+    },
+  ],
   rules: {
     "react-refresh/only-export-components": [
       "warn",

@@ -1,4 +1,5 @@
 import { z } from "zod";
+// eslint-disable-next-line hexagonal-architecture/enforce
 import { adaptSerialNumToJSDate } from "../../application/adapters/adapters";
 
 export const schemaETT = z.object({
