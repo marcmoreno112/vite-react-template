@@ -8,7 +8,7 @@ import * as Yup from "yup";
 import { useState } from "react";
 import { loginUser } from "../../serviceBds/serviceBds";
 import { useNavigate } from "react-router-dom";
-import { AuthConsumer } from "../../../../../../context/loginContext";
+import { AuthConsumer } from "../../../../../../context/application/loginContext";
 
 const RegisterSchema = Yup.object().shape({
   email: Yup.string().email().required(),

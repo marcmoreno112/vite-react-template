@@ -1,5 +1,5 @@
 import { SupportedLanguages } from "../../shared/domain/env";
-import { ErrorKeys } from "../../error/IerrorController";
+import { ErrorKeys } from "../../error/application/IerrorController";
 
 export type TranslationKeys =
   | ErrorKeys
